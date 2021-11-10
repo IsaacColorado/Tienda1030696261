@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+     <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="barraMenu.xhtml" ></ui:include>
+          <h:form id="form1">
+            <p:growl id="Msg1" showDetail="true" ></p:growl>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Usuario" for="doceumento"></p:outputLabel>
+                <p:inputText value="#{empleadosC.documento}" id="documento" ></p:inputText>
+                <p:outputLabel value="Clave" for="clave" ></p:outputLabel>
+                <p:inputText value="#{empleadosC.clave}" id="clave" ></p:inputText>
+                <p:outputLabel value="Documento del cliente" ></p:outputLabel>
+                <p:commandButton value="Guardar" actionListener="#{empleadosC.insertar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Actualizar" actionListener="#{empleadosC.actualizar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Eliminar" actionListener="#{empleadosC.eliminar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Consultar" actionListener="#{empleadosC.consultarPrimaria()}" update="Msg1,form1" ></p:commandButton>
+            </p:panelGrid>
+        </h:form>
+        
+        <h:form id="form2">
+            <p:dataTable id="tabla1" value="">
+                
+            </p:dataTable>
+                
+        </h:form>
+        
+    </h:body>
+</html>

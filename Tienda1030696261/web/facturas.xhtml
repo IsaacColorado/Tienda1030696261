@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="barraMenu.xhtml" ></ui:include>
+          <h:form>
+            <p:growl id="grow1Msg" showDetail="true" ></p:growl>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Numero de factura" ></p:outputLabel>
+                <p:inputText value="#{facturasC.numero }" ></p:inputText>
+                <p:outputLabel value="Fecha" ></p:outputLabel>
+                <p:inputText value="#{facturasC.fecha}" ></p:inputText>
+                <p:outputLabel value="Documento del cliente" ></p:outputLabel>
+                <p:inputText value="#{facturasC.personasdocumento}" ></p:inputText>
+                <p:outputLabel value="Documento del empleado"></p:outputLabel>
+                <p:inputText value="#{facturasC.empleadodocumento}"></p:inputText>
+                <p:commandButton value="Guardar" actionListener="#{facturasC.insertar()}" update="grow1Msg" ></p:commandButton>
+                <p:commandButton value="Actualizar" actionListener="#{facturasC.actualizar()}" update="grow1Msg" ></p:commandButton>
+                <p:commandButton value="Eliminar" actionListener="#{facturasC.eliminar()}" update="grow1Msg" ></p:commandButton>
+            </p:panelGrid>
+        </h:form>
+        
+    </h:body>
+</html>

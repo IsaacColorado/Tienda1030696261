@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <ui:include src="barraMenu.xhtml" ></ui:include>
+        <h:form id="form1">
+            <p:growl id="Msg1" showDetail="true" ></p:growl>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Documento" for="doc" ></p:outputLabel>
+                <p:inputText value="#{personasC.documento}" id="doc" ></p:inputText>
+                <p:outputLabel value="Primer Nombre" for="pn" ></p:outputLabel>
+                <p:inputText value="#{personasC.pnombre}" id="pn" ></p:inputText>
+                <p:outputLabel value="Segundo Nombre" for="sn" ></p:outputLabel>
+                <p:inputText value="#{personasC.snombre}" id="sn" ></p:inputText>
+                <p:outputLabel value="Primer Apellido" for="pa" ></p:outputLabel>
+                <p:inputText value="#{personasC.papellido}" id="pa" ></p:inputText>
+                <p:outputLabel value="Segundo Apellido" for="sa" ></p:outputLabel>
+                <p:inputText value="#{personasC.sapellido}" id="sa" ></p:inputText>
+                <p:outputLabel value="Email" for="e" ></p:outputLabel>
+                <p:inputText value="#{personasC.email}" id="e" type="email" ></p:inputText>
+                <p:commandButton value="Guardar" actionListener="#{personasC.insertar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Actualizar" actionListener="#{personasC.actualizar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Eliminar" actionListener="#{personasC.eliminar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Consultar" actionListener="#{personasC.consultarPrimaria()}" update="Msg1,form1" ></p:commandButton>
+            </p:panelGrid>
+        </h:form>
+    </body>
+</html>

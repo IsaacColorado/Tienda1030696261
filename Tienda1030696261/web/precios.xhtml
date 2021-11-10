@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:include src="barraMenu.xhtml" ></ui:include>
+          <h:form>
+            <p:growl id="Msg1" showDetail="true" ></p:growl>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Producto" for="cb" ></p:outputLabel>
+                <p:inputText value="#{preciosC.cb}" id="cb" ></p:inputText>
+                <p:outputLabel value="Precio" for="precio" ></p:outputLabel>
+                <p:inputText value="#{preciosC.precio}" id="precio" ></p:inputText>
+                
+                <p:outputLabel value="Inicio De Promoción" for="fechaini" ></p:outputLabel>
+                <p:datePicker value="#{preciosC.fechaini}" id="fechaini" ></p:datePicker>
+                
+                <p:outputLabel value="Final de la promoción" for="fechafin" ></p:outputLabel>
+                <p:datePicker value="#{preciosC.fechafin}" id="fechafin" pattern="yyyy-MM-dd" ></p:datePicker>
+                <p:commandButton value="Guardar" actionListener="#{preciosC.insertar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Actualizar" actionListener="#{preciosC.actualizar()}" update="Msg1" ></p:commandButton>
+                <p:commandButton value="Eliminar" actionListener="#{preciosC.eliminar()}" update="Msg1" ></p:commandButton>
+            </p:panelGrid>
+        </h:form>
+        
+    </h:body>
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>TODO write content</div>
+    </body>
+</html>

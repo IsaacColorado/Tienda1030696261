@@ -1,24 +1,23 @@
-
 package com.mono.modelo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Facturas {
     private int numero;
-    private Date fecha;
+    private LocalDateTime fecha;
     private int personasdocumento;
     private int empleadodocumento;
 
     public Facturas() {
     }
 
-    public Facturas(int numero, Date fecha, int personasdocumento) {
+    public Facturas(int numero, LocalDateTime fecha, int personasdocumento) {
         this.numero = numero;
         this.fecha = fecha;
         this.personasdocumento = personasdocumento;
     }
 
-    public Facturas(int numero, Date fecha, int personasdocumento, int empleadodocumento) {
+    public Facturas(int numero, LocalDateTime fecha, int personasdocumento, int empleadodocumento) {
         this.numero = numero;
         this.fecha = fecha;
         this.personasdocumento = personasdocumento;
@@ -35,11 +34,11 @@ public class Facturas {
         this.numero = numero;
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 
@@ -60,8 +59,8 @@ public class Facturas {
     }
 
     @Override
-    public String toString() {
-        return "Facturas{" + "numero=" + numero + ", fecha=" + fecha + ", personasdocumento=" + personasdocumento + ", empleadodocumento=" + empleadodocumento + '}';
+     public String toString() {
+        return "Facturas set numero='" + numero + "', fecha='" + fecha + "', personasdocumento='" + personasdocumento + "', empleadodocumento='" + empleadodocumento + "'";
     }
 
     

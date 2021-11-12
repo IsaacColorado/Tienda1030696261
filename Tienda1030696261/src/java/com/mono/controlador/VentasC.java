@@ -25,6 +25,8 @@ public class VentasC extends Ventas{
         ResultSet    r = CRUD.select(sql);
         try {
             while (r.next()){
+                Ventas p=new Ventas(r.getInt(1), r.getString(2), r.getInt(3));
+                ventas.add(p);
                 
             }
         }catch (SQLException ex){
@@ -32,7 +34,22 @@ public class VentasC extends Ventas{
         }
     }
     
-    public void consultarPrimaria(){}
+    public void consultarPrimaria(){
+        String sql = "SELECT * FROM Ventas WHERE numerof='" + getNumerof()+ "'";
+        System.err.println(sql);
+        ResultSet r = CRUD.select(sql);
+        try {
+            if (r.next()) {
+                setNumerof(r.getInt(1));
+                setCb(r.getString(2));
+                setCantidad(r.getInt(3));
+            }else{
+                Msg.ad("La factura no se encuentra registrado.");
+            }
+        } catch (SQLException ex) {
+            Msg.error(ex.getMessage());
+        }
+    }
     
     public void eliminar(){
         String sql="DELETE FROM ventas WHERE numerof='"+getNumerof()+"'and cb='"+getCb()+"'";
@@ -49,6 +66,7 @@ public class VentasC extends Ventas{
 
     private ArrayList<Object> crea0() {
         ArrayList<Object> o =new ArrayList<>();
+        o.add(this);
         return o; 
     }
 }

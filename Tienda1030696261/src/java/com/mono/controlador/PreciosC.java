@@ -4,9 +4,12 @@ package com.mono.controlador;
 import com.mono.controlador.util.CRUD;
 import com.mono.controlador.util.Msg;
 import com.mono.modelo.Precios;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -14,32 +17,46 @@ import javax.inject.Named;
 @RequestScoped
 public class PreciosC extends Precios {
     
-    @PostConstruct
-    public void init(){
-        setFechafin(new Date());
-        setFechaini(new Date());
-        
-        
-     
-    }
-    
-    public void consultarPrimaria(){}
-    
-    public void eliminar(){
-        String sql="DELETE FROM precios WHERE cb='"+getCb()+"' and fechaini='"+getFechaini()+"'";
-        String m="Se ha eliminado el precio";
-        Msg.msgDB(m ,CRUD.DML(sql, m));
-    }
-     public void insertar(){
-         System.err.println(getFechafin());
-        CRUD.insert(crea0());
-    }
-    public void actualizar(){
-        CRUD.update(crea0(), "cb='"+getCb()+"' and fechaini='"+getFechaini()+"'");
+    public void consultaPrimaria() {
+        String sql = "SELECT * FROM Precios WHERE cb='" + getCb()+ "' and fechaini='"+getFechaini()+"'";
+        System.err.println(sql);
+        ResultSet r = CRUD.select(sql);
+        try {
+            if (r.next()) {
+                setCb(r.getString(1));
+                Date f=r.getTimestamp(2);
+                LocalDate l=f.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                setFechaini(l);
+                f=r.getTimestamp(3);
+                l=f.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                setFechafin(l);
+                setPrecio(r.getDouble(4));
+            }else{
+                Msg.ad("La factura no se encuentra registrado.");
+            }
+        } catch (SQLException ex) {
+            Msg.error(ex.getMessage());
+        }
     }
 
-    private ArrayList<Object> crea0() {
-        ArrayList<Object> o =new ArrayList<>();
-        return o; 
-    } 
+    public void eliminar() {
+        String sql = "DELETE FROM Precios WHERE cb='" + getCb() + "' and fechaini='" + getFechaini() + "'";
+        String m = "Se ha eliminado el precio";
+        Msg.msgDB(m, CRUD.DML(sql, m));
+    }
+
+    public void insertar() {
+        //System.err.println(creaO());
+        CRUD.insert(creaO());
+    }
+
+    public void actualizar() {
+        CRUD.update(creaO(), "cb='" + getCb() + "' and fechaini='" + getFechaini() + "'");
+    }
+
+    private ArrayList<Object> creaO() {
+        ArrayList<Object> o = new ArrayList<>();
+        o.add(this);
+        return o;
+    }
 }

@@ -2,15 +2,17 @@
 package com.mono.modelo;
 
 public class Empleados {
-    private String clave;
     private int documento;
+    private String clave;
+    
 
     public Empleados() {
     }
 
-    public Empleados(String clave, int documento) {
-        this.clave = clave;
+    public Empleados(int documento, String clave) {
         this.documento = documento;
+        this.clave = clave;
+        
     }
 
     public String getClave() {
@@ -31,7 +33,7 @@ public class Empleados {
 
     @Override
     public String toString() {
-        return "Empleados{" + "clave=" + clave + ", documento=" + documento + '}';
+        return "Empleados set documento='" + documento + "', clave='" + clave + "'";
     }
 
     

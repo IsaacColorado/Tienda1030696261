@@ -29,5 +29,4 @@ public class FotosC extends Fotos{
     public void setFotos(List<Fotos> fotos) {
         this.fotos = fotos;
     }
-    
 }

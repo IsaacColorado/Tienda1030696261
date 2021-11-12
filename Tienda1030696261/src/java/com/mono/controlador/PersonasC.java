@@ -130,6 +130,5 @@ public class PersonasC extends Personas {
 
     public void setPersonas(List<Personas> personas) {
         this.personas = personas;
-    }
-    
+    }    
 }

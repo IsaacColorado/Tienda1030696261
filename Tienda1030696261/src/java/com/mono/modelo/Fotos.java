@@ -51,7 +51,7 @@ public class Fotos {
 
     @Override
     public String toString() {
-        return "Fotos set id='" + id + ", descripcion=" + descripcion + ", foto=" + foto + ", productoscb=" + productoscb + '}';
+        return "Fotos set id='" + id + "', descripcion='" + descripcion + "', foto='" + foto + "', productoscb='" + productoscb + "'";
     }
     
     

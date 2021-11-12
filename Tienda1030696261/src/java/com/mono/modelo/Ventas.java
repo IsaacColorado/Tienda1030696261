@@ -42,7 +42,7 @@ public class Ventas {
 
     @Override
     public String toString() {
-        return "Ventas{" + "numerof=" + numerof + ", cb=" + cb + ", cantidad=" + cantidad + '}';
+        return "Ventas set numerof='" + numerof + "', cb='" + cb + "', cantidad='" + cantidad + "'";
     }
 
     

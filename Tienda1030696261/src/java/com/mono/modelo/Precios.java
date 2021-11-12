@@ -61,7 +61,7 @@ public class Precios {
 
     @Override
     public String toString() {
-        return "Precios set cb='" + cb + ", fechaini=" + fechaini + ", fechafin=" + fechafin + ", precio=" + precio + '}';
+        return "Precios set cb='" + cb + "', fechaini='" + fechaini + "', fechafin='" + fechafin + "', precio='" + precio + "'";
     }
       
       

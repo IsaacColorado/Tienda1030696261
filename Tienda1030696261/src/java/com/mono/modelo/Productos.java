@@ -44,7 +44,7 @@ public class Productos {
 
     @Override
     public String toString() {
-        return "Productos{" + "cb=" + cb + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+        return "Productos set  cb='" + cb + "', nombre='" + nombre + "', descripcion='" + descripcion + "'";
     }
     
     

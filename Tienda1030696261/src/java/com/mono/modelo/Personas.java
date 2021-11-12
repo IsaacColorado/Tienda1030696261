@@ -75,7 +75,7 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "documento=" + documento + ", pnombre=" + pnombre + ", snombre=" + snombre + ", papellido=" + papellido + ", sapellido=" + sapellido + ", email=" + email + '}';
+        return "Personas set  documento='" + documento + "', pnombre='" + pnombre + "', snombre='" + snombre + "', papellido='" + papellido + "', sapellido='" + sapellido + "', email='" + email+"'" ;
     }
     
 }
